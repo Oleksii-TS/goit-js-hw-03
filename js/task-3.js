@@ -1,11 +1,19 @@
-function checkForSpam(message) {
-  const lowerMessage = message.toLowerCase();
-  return lowerMessage.includes("spam") || lowerMessage.includes("sale");
+function filterArray(numbers, value) {
+  const suitableNumbers = [];
+
+  for (const number of numbers) {
+    if (number > value) {
+      suitableNumbers.push(number);
+    }
+  }
+
+  return suitableNumbers;
 }
-console.log(checkForSpam("Latest technology news")); // false
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
-console.log(checkForSpam("Get best sale offers now!")); // true
-console.log(checkForSpam("Amazing SalE, only tonight!")); // true
-console.log(checkForSpam("Trust me, this is not a spam message")); // true
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+
+// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
+
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
